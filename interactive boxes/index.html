@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Boxes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+
+      h2 {
+        text-align: center;
+        color: #ff4081;
+      }
+
+      .box {
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .box.active {
+        border-color: #ff4081;
+        background: #fff0f5;
+        transform: scale(1.02);
+      }
+
+      .box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .box-header .discount {
+        background-color: #ff6584;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-left: 8px;
+      }
+
+      .box-header .price {
+        font-weight: bold;
+      }
+
+      .old-price {
+        text-decoration: line-through;
+        font-size: 12px;
+        color: #aaa;
+      }
+
+      .details {
+        display: none;
+        margin-top: 12px;
+      }
+
+      .details.show {
+        display: block;
+      }
+
+      .details select {
+        margin: 4px 8px 4px 0;
+        padding: 6px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      .tag {
+        background-color: #ff4060;
+        color: white;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        position: absolute;
+        right: 16px;
+        top: -10px;
+      }
+
+      .tag-wrapper {
+        position: relative;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .free-delivery {
+        color: #ff4081;
+      }
+
+      .total {
+        font-weight: bold;
+        padding: 4px 8px;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        background-color: #ff6584;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 16px;
+      }
+
+      .powered {
+        text-align: center;
+        color: #aaa;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>YAY! It's BOGO</h2>
+
+    <!-- Top Box -->
+    <div class="box" data-index="0">
+      <div class="box-header">
+        <div>
+          <br />
+          <strong>
+            <input type="radio" id="unit1" name="unit" value="unit1" />
+            <label for="html">1 Unit</label></strong
+          >
+          <span class="discount">10% Off</span>
+          <div>Standard Price</div>
+        </div>
+        <div>
+          <div class="price">$10.00 USD</div>
+          <div class="old-price">$24.00 USD</div>
+        </div>
+      </div>
+      <div class="details">
+        <label>#1</label>
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        <select>
+          <option>Black</option>
+          <option>White</option>
+          <option>Blue</option>
+        </select>
+        <br />
+        <label>#2</label>
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        <select>
+          <option>Black</option>
+          <option>White</option>
+          <option>Blue</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Middle Box -->
+    <div class="box" data-index="1">
+      <div class="tag-wrapper">
+        <div class="tag">MOST POPULAR</div>
+        <div class="box-header">
+          <div>
+            <input type="radio" id="unit2" name="unit" value="unit2" />
+            <label for="unit2"><strong>2 Units</strong></label>
+
+            <span class="discount">20% Off</span>
+          </div>
+          <div>
+            <br />
+            <div class="price">$18.00 USD</div>
+            <div class="old-price">$48.00 USD</div>
+          </div>
+        </div>
+      </div>
+      <div class="details">
+        <label>#1</label>
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        <select>
+          <option>Black</option>
+          <option>White</option>
+          <option>Blue</option>
+        </select>
+        <br />
+        <label>#2</label>
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        <select>
+          <option>Black</option>
+          <option>White</option>
+          <option>Blue</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Bottom Box -->
+    <div class="box" data-index="2">
+      <div class="box-header">
+        <div>
+          <input type="radio" id="unit3" name="unit" value="unit3" />
+          <label for="unit3"><strong>3 Units</strong></label>
+
+          <span class="discount">30% Off</span>
+        </div>
+        <div>
+          <div class="price">$24.00 USD</div>
+          <div class="old-price">$72.00 USD</div>
+        </div>
+      </div>
+      <div class="details">
+        <label>#1</label>
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        <select>
+          <option>Black</option>
+          <option>White</option>
+          <option>Blue</option>
+        </select>
+        <br />
+        <label>#2</label>
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        <select>
+          <option>Black</option>
+          <option>White</option>
+          <option>Blue</option>
+        </select>
+        <br />
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="free-delivery">Free Delivery</div>
+      <div class="total">Total : $18.00 USD</div>
+    </div>
+
+    <button>+ Add to Cart</button>
+    <div class="powered">@ Powered by Pumper</div>
+
+    <script>
+      const boxes = document.querySelectorAll(".box");
+
+      boxes.forEach((box) => {
+        box.addEventListener("click", () => {
+          boxes.forEach((b) => {
+            b.classList.remove("active");
+            b.querySelector(".details").classList.remove("show");
+          });
+          box.classList.add("active");
+          box.querySelector(".details").classList.add("show");
+        });
+      });
+    </script>
+  </body>
+</html>
